@@ -1,0 +1,7 @@
+{
+    "title"     : "Check-Fact",
+    "login"     : "Login",
+    "register"  : "Register",
+    "profile"   : "Profile",
+    "rumor"     : "Send rumors via email"
+}
