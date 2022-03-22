@@ -19,8 +19,9 @@ class CreateRumorsTable extends Migration
             $table->string('sender_email');
             $table->string('sender_phone');
             $table->string('rumor_title');
-            $table->string('rumor_link_one')->nullable();
+            $table->string('rumor_link_one');
             $table->string('rumor_link_two')->nullable();
+            $table->integer('status')->default(0)->comment('0 = default, 1 = accept, 2=process, 3=done');
             $table->softDeletes();
             $table->timestamps();
         });

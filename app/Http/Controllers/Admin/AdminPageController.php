@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\admin\Post;
+use App\Models\Subscriber;
 use App\Models\Tracker;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
@@ -19,6 +21,8 @@ class AdminPageController extends Controller
         $data = [
             'total_users' =>  User::all()->count(),
             'visitor_tracker' =>  Tracker::orderBy('date', 'DESC')->limit(5)->get(),
+            'total_posts' =>  Post::all()->count(),
+            'total_subs' =>  Subscriber::all()->count(),
             'visitor_tracker_date' =>  Tracker::where('date', date('Y-m-d'))->count(),
         ];
         return view("{$this->directory}.dashboard", $data);

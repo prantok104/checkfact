@@ -21,7 +21,7 @@ class CreatePostsTable extends Migration
             $table->string('slug_bn')->nullable();
             $table->longText('content_en')->nullable();
             $table->longText('content_bn')->nullable();
-            $table->string('thumbnail')->nullable();
+            $table->string('fixed_hero')->nullable();
             $table->integer('category_id')->nullable();
             $table->integer('draft')->nullable();
             $table->softDeletes();

@@ -51,7 +51,7 @@
                                                 <tbody>
                                                 @php $i =1; @endphp
                                                 @foreach($posts as $value)
-                                                    <tr>
+                                                    <tr  class=" {{ ($value->fixed_hero == '1') ? 'bg-soft-primary' :  '' }} bg-">
                                                         <td>{{ $i++ }}</td>
                                                         <td><img src="{{$value->getFirstMediaUrl('post')}}" width="40px" height="40px" alt=""></td>
                                                         <td>{{ $value->title_bn }}</td>
@@ -60,6 +60,7 @@
                                                             <a href="{{ route('admin.posts.edit', ['id' => $value->id ]) }}" class="btn btn-sm btn-primary"><i class="ti ti-pencil"></i> Edit</a>
                                                             <a href="{{ route('admin.posts.destroy', ['id' => $value->id]) }}" class="btn btn-sm btn-danger"><i class="ti ti-trash"></i> Delete</a>
                                                             <a href="{{ route('admin.posts.draft', ['id' => $value->id]) }}" class="btn btn-sm btn-warning"><i class="ti ti-database"></i> Draft</a>
+                                                            <a href="{{ route('admin.posts.pin', ['id' => $value->id]) }}" class="btn btn-sm btn-success"><i class="ti ti-pin"></i> {{ ($value->fixed_hero == '1') ? 'Pined' :  'Pin' }}</a>
                                                         </td>
                                                     </tr>
                                                 @endforeach

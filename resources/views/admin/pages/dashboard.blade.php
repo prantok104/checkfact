@@ -91,8 +91,8 @@
                                             <div id="dash_spark_3" class="mb-3"></div>
                                         </div><!--end col-->
                                         <div class="col-12 ms-auto align-self-center">
-                                            <h3 class="text-dark my-0 font-22 fw-bold">$2400</h3>
-                                            <p class="text-muted mb-0 fw-semibold">Bounce Rate</p>
+                                            <h3 class="text-dark my-0 font-22 fw-bold">{{ $total_posts }}</h3>
+                                            <p class="text-muted mb-0 fw-semibold">Total Posts</p>
                                         </div><!--end col-->
                                     </div><!--end row-->
                                 </div><!--end card-body-->
@@ -106,15 +106,12 @@
                                         <div class="col-3">
                                             <i class="ti ti-confetti font-36 align-self-center text-dark"></i>
                                         </div><!--end col-->
-                                        <div class="col-auto ms-auto align-self-center">
-                                            <span class="badge badge-soft-danger px-2 py-1 font-11">-2%</span>
-                                        </div><!--end col-->
                                         <div class="col-12 ms-auto align-self-center">
                                             <div id="dash_spark_4" class="mb-3"></div>
                                         </div><!--end col-->
                                         <div class="col-12 ms-auto align-self-center">
-                                            <h3 class="text-dark my-0 font-22 fw-bold">85000</h3>
-                                            <p class="text-muted mb-0 fw-semibold">Goal Completions</p>
+                                            <h3 class="text-dark my-0 font-22 fw-bold">{{ $total_subs }}</h3>
+                                            <p class="text-muted mb-0 fw-semibold">Total Subscriber</p>
                                         </div><!--end col-->
                                     </div><!--end row-->
                                 </div><!--end card-body-->

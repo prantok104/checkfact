@@ -580,9 +580,12 @@ a.fact-right-title {
 
 .fact-popular-post {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     gap: 13px;
     flex-wrap: wrap;
+}
+.tags {
+    clear: both;
 }
 
 .fact-popular-single-post {
@@ -1107,7 +1110,7 @@ form.search-form  .search-submit {
 .hero-single-post-area img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     object-position: top center;
     transform: scale(1);
     z-index: 9;

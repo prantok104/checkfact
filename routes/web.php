@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\AdminCategoryController;
 use App\Http\Controllers\Admin\AdminVideoController;
 use App\Http\Controllers\Front\SubscriberController;
 use App\Http\Controllers\Admin\AdminRumorController;
+use App\Http\Controllers\Admin\AdminCommentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,6 +39,7 @@ Auth::routes();
 Route::group(['middleware' => 'auth', 'namespace' => 'Front', 'as'=>'front.'], function (){
     Route::get('user-profile', [PageController::class, 'user'])->name('user');
     Route::get('logout', [PageController::class, 'logout'])->name('logout');
+    Route::post('comment', [AdminCommentController::class, 'store'] )->name('post.comment');
 });
 // FrontPage All routes
 Route::group(['namespace' => 'Front', 'as'=>'front.'], function (){
@@ -46,10 +48,16 @@ Route::group(['namespace' => 'Front', 'as'=>'front.'], function (){
 
     // Subscription Route
     Route::post('/subscriber', [SubscriberController::class, 'subscriber'])->name('subscriber');
+    Route::get('/archive-serach', [PageController::class, 'archiveSearch'])->name('archive.search');
+    Route::get('/single/{slug}', [PageController::class, 'singlePage'])->name('single');
+    Route::get('/search', [PageController::class, 'globalSearch'])->name('global.search');
+    Route::get('/news', [PageController::class, 'news'])->name('news');
+    Route::get('/category/{slug}', [PageController::class, 'categoryPage'])->name('category');
 
     //Rumor Route
     Route::get('rumor', [AdminRumorController::class, 'index'])->name('rumor');
     Route::post('rumor/send', [AdminRumorController::class, 'rumorSend'])->name('rumor.send');
+
 });
 
 
@@ -86,6 +94,7 @@ Route::group(['middleware' => 'auth:admin', 'namespace' => 'Admin', 'as' => 'adm
     Route::get('/posts/draft/{id}', [AdminPostController::class, 'draft'])->name('posts.draft');
     Route::get('/posts/publish/{id}', [AdminPostController::class, 'publish'])->name('posts.publish');
     Route::get('/posts/draft', [AdminPostController::class, 'draftPosts'])->name('posts.draft.all');
+    Route::get('/posts/pined/{id}', [AdminPostController::class, 'postPinForHero'])->name('posts.pin');
     Route::post('/posts/image-upload', [AdminPostController::class, 'imageUpload'])->name('posts.image.upload');
 
     // All Route for Category related
@@ -110,6 +119,11 @@ Route::group(['middleware' => 'auth:admin', 'namespace' => 'Admin', 'as' => 'adm
 
     // Subscriber Route
     Route::get('/subscriber/lists', [SubscriberController::class, 'index'])->name('subscriber');
+
+    // Check Rumor
+    Route::get('/check/rumors/lists', [AdminRumorController::class, 'rumorListsShow'])->name('rumor.lists');
+    Route::get('/check/rumors/view/{id}', [AdminRumorController::class, 'rumorView'])->name('rumor.view');
+    Route::get('/check/rumors/send-mail/{type}/{id}', [AdminRumorController::class, 'rumorSendMail'])->name('rumor.send-mail');
 
 
 });

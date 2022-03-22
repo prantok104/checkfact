@@ -35,13 +35,16 @@
                                 <b class="invalid-feedback mb-2"><i class="fa fa-exclamation-triangle"></i> {{$message}}</b>
                                 @enderror
 
-                                <input type="text" name="rumor-link-1" placeholder="গুজব লিঙ্ক ১ ( যদি থাকে ) " class="form-control">
+                                <input type="text" name="rumor_link_1" placeholder="গুজব লিংক ১" class="form-control" value="{{ old('rumor_link_1') }}">
+                                @error('rumor_link_1')
+                                <b class="invalid-feedback mb-2"><i class="fa fa-exclamation-triangle"></i> {{$message}}</b>
+                                @enderror
 
-                                <input type="text" name="rumor-link-2" placeholder="গুজব লিঙ্ক ২ ( যদি থাকে ) " class="form-control">
+                                <input type="text" name="rumor_link_2" placeholder="গুজব লিংক ২ ( যদি থাকে ) " class="form-control">
 
-                                <label for="image" class="form-control bg-light @error('image') is-invalid @enderror" style="cursor: pointer">গুজবের ফটো (এক বা একাধিক)</label>
-                                <input type="file" name="image[]" id="image" class="form-control d-none" multiple="true">
-                                @error('image')
+                                <label for="image" class="form-control bg-light @error('images') is-invalid @enderror" style="cursor: pointer">গুজবের ফটো (এক বা একাধিক)</label>
+                                <input type="file" name="images[]" id="image" class="form-control d-none" multiple="true">
+                                @error('images')
                                 <b class="invalid-feedback mb-2"><i class="fa fa-exclamation-triangle"></i> {{$message}}</b>
                                 @enderror
 

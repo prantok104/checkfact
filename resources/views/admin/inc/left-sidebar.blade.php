@@ -87,6 +87,24 @@
                     </li><!--end nav-item-->
 
                     <li class="nav-item">
+                        <a class="nav-link" href="#comments" data-bs-toggle="collapse" role="button"
+                           aria-expanded="false" aria-controls="comments">
+                            <i class="ti ti-list menu-icon"></i>
+                            <span>Comments</span>
+                        </a>
+                        <div class="collapse " id="comments">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link d-flex justify-content-between align-items-center" href="{{ route('admin.category.add-new') }}">Add New <i class="ti ti-plus mr-2"></i></a>
+                                </li><!--end nav-item-->
+                                <li class="nav-item">
+                                    <a class="nav-link d-flex justify-content-between align-items-center" href="{{ route('admin.category.trash') }}">Trashed <i class="ti ti-trash mr-2"></i></a>
+                                </li><!--end nav-item-->
+                            </ul><!--end nav-->
+                        </div><!--end sidebarCrypto-->
+                    </li><!--end nav-item-->
+
+                    <li class="nav-item">
                         <a class="nav-link" href="#categories" data-bs-toggle="collapse" role="button"
                            aria-expanded="false" aria-controls="categories">
                             <i class="ti ti-list menu-icon"></i>
@@ -133,10 +151,29 @@
                         <div class="collapse " id="subscriber">
                             <ul class="nav flex-column">
                                 <li class="nav-item">
-                                    <a class="nav-link d-flex justify-content-between align-items-center" href="{{ route('admin.subscriber') }}">Subscriber Lists</a>
+                                    <a class="nav-link d-flex justify-content-between align-items-center" href="{{ route('admin.subscriber') }}">Subscriber Lists <i class="ti ti-user mr-2"></i></a>
                                 </li><!--end nav-item-->
                                 <li class="nav-item">
-                                    <a class="nav-link d-flex justify-content-between align-items-center" href="{{ route('admin.video.trash') }}">Send E-Mail<i class="ti ti-trash mr-2"></i></a>
+                                    <a class="nav-link d-flex justify-content-between align-items-center" href="{{ route('admin.video.trash') }}">Send E-Mail<i class="ti ti-mail mr-2"></i></a>
+                                </li><!--end nav-item-->
+                            </ul><!--end nav-->
+                        </div><!--end sidebarCrypto-->
+                    </li><!--end nav-item-->
+
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#rumor" data-bs-toggle="collapse" role="button"
+                           aria-expanded="false" aria-controls="rumor">
+                            <i class="ti ti-mail-opened menu-icon"></i>
+                            <span>Check Rumors</span>
+                        </a>
+                        <div class="collapse " id="rumor">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link d-flex justify-content-between align-items-center" href="{{ route('admin.rumor.lists') }}">Rumor Lists <i class="ti ti-mail-forward mr-2"></i></a>
+                                </li><!--end nav-item-->
+                                <li class="nav-item">
+                                    <a class="nav-link d-flex justify-content-between align-items-center" href="{{ route('admin.video.trash') }}">Trash <i class="ti ti-trash mr-2"></i></a>
                                 </li><!--end nav-item-->
                             </ul><!--end nav-->
                         </div><!--end sidebarCrypto-->

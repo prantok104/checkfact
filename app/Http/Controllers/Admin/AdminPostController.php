@@ -7,6 +7,7 @@ use App\Models\Admin\Category;
 use App\Models\Admin\Post;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Intervention\Image\Facades\Image;
 
 
@@ -159,7 +160,6 @@ class AdminPostController extends Controller
         }
 
         $post->category_id = $request->category;
-        $post->draft = $request->post;
         $post->update();
         Toastr::success('Post Update Completed','Update');
         return redirect()->back();
@@ -223,7 +223,7 @@ class AdminPostController extends Controller
     }
     // All posts show
     public function view(){
-        $data['posts'] = Post::with(['categories'])->where('draft', '1')->orderBy('id', 'desc')->paginate(15);
+        $data['posts'] = Post::with(['categories'])->where('draft', '1')->orderBy('fixed_hero', 'DESC')->orderBy('id', 'desc')->paginate(15);
         return view("{$this->directory}view-all", $data);
     }
 
@@ -249,6 +249,16 @@ class AdminPostController extends Controller
         $post->draft = '1';
         $post->update();
         Toastr::success('Publish Complete. Please check it view all menu', 'Success');
+        return redirect()->back();
+    }
+
+    // Post for hero pin
+    public function postPinForHero(Request $request){
+        $post = DB::table('posts')->update(array('fixed_hero' => NULL));
+        $pinPost = Post::findOrFail($request->id);
+        $pinPost->fixed_hero = 1;
+        $pinPost->update();
+        Toastr::success('This Post Pined for hero middle section', 'Success');
         return redirect()->back();
     }
 

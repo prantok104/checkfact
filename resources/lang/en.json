@@ -1,7 +1,11 @@
 {
     "title"     : "Check-Fact",
+    "title right": "Fact-checking website",
     "login"     : "Login",
     "register"  : "Register",
     "profile"   : "Profile",
-    "rumor"     : "Send rumors via email"
+    "rumor"     : "Send rumors via email",
+    "archive"   : "Archive",
+    "news"      : "News",
+    "category"  : "Category"
 }

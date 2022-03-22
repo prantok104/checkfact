@@ -3,10 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@yield('title') | {{trans('title')}}</title>
+    <title>@yield('title') | {{trans('title right')}}</title>
+
+    @stack('meta')
 
     <!--Bootstrap CSS-->
     <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
+
+    <link rel="icon" href="{{ asset('assets/images/favicon.png') }}" type="image/png">
 
     <!--Owl-carousel CSS-->
     <link rel="stylesheet" href="{{asset('assets/css/owl.carousel.min.css')}}">
@@ -16,6 +20,9 @@
 
     <!--PrettyPhoto CSS-->
     <link rel="stylesheet" href="{{asset('assets/css/prettyPhoto.css')}}">
+
+    <!--Magnific Popup CSS-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css">
 
     <!--FontAwesome CSS-->
     <link rel="stylesheet" href="https://kit-pro.fontawesome.com/releases/v5.12.1/css/pro.min.css">
@@ -53,10 +60,9 @@
             <div class="col-md-6 col-4">
                 <div class="single-part text-right">
                     <div class="footer-social-media">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.facebook.com/checkfactbd"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.youtube.com/channel/UCxweY1fZPYgx_8rOw1yQdgg"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
             </div>
@@ -94,7 +100,7 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <form action="" method="POST" class="d-flex align-items-center justify-content-center">
+                                        <form action="{{ route('front.global.search') }}" method="GET" class="d-flex align-items-center justify-content-center">
                                             <input type="search" name="s" placeholder="যা অনুসন্ধান করতে চান" class="form-control">
                                             <button type="submit" class="search-btn btn btn-primary"><i class="fal fa-search"></i></button>
                                         </form>
@@ -123,12 +129,13 @@
                     <div class="fact-main-menu-area">
                         <div class="menu-main-menu-container">
                             <ul id="primary-menu" class="menu">
-                                <li><a href="">মিথ্যা নিউজে অভিযোগ করুন</a></li>
-                                <li><a href="news.html">সংবাদ</a></li>
-                                <li><a href="">ক্যাটাগরি <i class="fal fa-angle-down"></i></a>
+                                <li>
+                                    <form action="" method="GET"><i class="fab fa-google"></i> <input type="text" name="fact-check-search" placeholder="আপনি কি যাচাই করতে চান"> <button class="submit"><i class="fal fa-search"></i></button></form></li>
+                                <li><a href="{{ route('front.news') }}">সংবাদ</a></li>
+                                <li><a href="">{{ __('category') }} <i class="fal fa-angle-down"></i></a>
                                     <ul class="sub-menu">
                                         @foreach($header_category as $value)
-                                            <li><a href="{{$value->slug_en}}">{{ $value->name_bn }}</a></li>
+                                            <li><a href="{{route('front.category', ['slug' =>  $value->slug_en])}}">{{ $value->name_bn }}</a></li>
                                         @endforeach
                                     </ul>
                                 </li>
@@ -160,7 +167,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="fact-search-context">
-                                        <form action="" method="GET" class="fact-search-form">
+                                        <form action="{{ route('front.global.search') }}" method="GET" class="fact-search-form">
                                             <div class="fact-input-group">
                                                 <button type="submit" class="fact-search-btn"><i class="fal fa-search"></i></button>
                                                 <input type="search" id="s" name="s" class="form-control" placeholder="যা অনুসন্ধান করতে চান">

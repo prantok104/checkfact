@@ -155,7 +155,9 @@ ul.slicknav_nav {
     .fact-main-slider-sigle-cotext, .fact-popular-single-post, .cat-area-context a, .fact-reg-content, .fact-reg-content a, .archive-page .fact-popular-single-post{
         width: 100%;
     }
-
+    .hero-area-start{
+        display: block
+    }
     .fact-hero-area-start.overflow-hidden {
         height: auto;
     }
